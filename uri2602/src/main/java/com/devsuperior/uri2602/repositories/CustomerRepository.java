@@ -16,6 +16,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
             + "WHERE UPPER(state)= UPPER(:state)")
     List<CustomerMinProjection> search1(String state);
 
+    // Realiza o join implicitamente
     @Query("SELECT new com.devsuperior.uri2602.dto.CustomerMinDTO(obj.name) "
             + "FROM Customer obj "
             + "WHERE UPPER(obj.state) = UPPER(:state)")
